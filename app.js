@@ -6,17 +6,15 @@ function randomOrNot() {
         chooseLab()
     }
 }
-
-
-function chooseLab() {
-    new_labyrinthe(3, labyrinthes["3"]["ex-0"]);
-}
-
+/*===============CODE GENERANT LE LABYRINTHE=========================*/
 function randomLab() {
-    console.log("random is ok")
     let randomCase = Math.floor(Math.random() * Object.keys(labyrinthes).length + 1);
     let randomEx = Math.floor(Math.random() * 2 + 1);
     new_labyrinthe(randomCase, labyrinthes[randomCase]["ex-" + randomEx])
+}
+
+function chooseLab() {
+    new_labyrinthe(3, labyrinthes["3"]["ex-0"]);
 }
 
 function new_labyrinthe(taille, ex) {
@@ -50,4 +48,4 @@ function new_labyrinthe(taille, ex) {
     }
 }
 
-console.log(labyrinthes["3"]["ex-0"]);
+/*==============CODE SE DEPLACANT DANS LE LABYRINTHE=================*/

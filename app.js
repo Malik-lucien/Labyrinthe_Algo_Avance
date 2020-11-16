@@ -1,5 +1,9 @@
 function randomOrNot() {
-    let random = false
+    let random = true;
+    let content = document.getElementById('grid-container');
+    while(content.firstChild) {
+        content.removeChild(content.firstChild);
+    }
     if (random) {
         randomLab();
     }else {
@@ -19,8 +23,8 @@ function chooseLab() {
 
 function new_labyrinthe(taille, ex) {
 
-    document.getElementById("grid-container").style.gridTemplateColumns = "repeat(" + taille + ", 100px)";
-    document.getElementById("grid-container").style.gridTemplateRows = "repeat(" + taille + ", 100px)";
+    document.getElementById("grid-container").style.gridTemplateColumns = "repeat(" + taille + ", 50px)";
+    document.getElementById("grid-container").style.gridTemplateRows = "repeat(" + taille + ", 50px)";
 
 
     //haut droit bas gauche 

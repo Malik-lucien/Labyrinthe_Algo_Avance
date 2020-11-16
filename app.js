@@ -1,6 +1,22 @@
+function randomOrNot() {
+    let random = true
+    if (random) {
+        randomLab();
+    }else {
+        chooseLab()
+    }
+}
 
-function affiche_lab() {
+
+function chooseLab() {
     new_labyrinthe(3, labyrinthes["3"]["ex-0"]);
+}
+
+function randomLab() {
+    console.log("random is ok")
+    let randomCase = Math.floor(Math.random() * Object.keys(labyrinthes).length + 1);
+    let randomEx = Math.floor(Math.random() * 2 + 1);
+    new_labyrinthe(randomCase, labyrinthes[randomCase]["ex-" + randomEx])
 }
 
 function new_labyrinthe(taille, ex) {

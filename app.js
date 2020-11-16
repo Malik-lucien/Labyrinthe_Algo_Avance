@@ -1,5 +1,5 @@
 function randomOrNot() {
-    let random = true
+    let random = false
     if (random) {
         randomLab();
     }else {
@@ -8,13 +8,13 @@ function randomOrNot() {
 }
 /*===============CODE GENERANT LE LABYRINTHE=========================*/
 function randomLab() {
-    let randomCase = Math.floor(Math.random() * Object.keys(labyrinthes).length + 1);
-    let randomEx = Math.floor(Math.random() * 2 + 1);
+    let randomCase = Math.floor(Math.random() * Object.keys(labyrinthes).length);
+    let randomEx = Math.floor(Math.random() * 3);
     new_labyrinthe(randomCase, labyrinthes[randomCase]["ex-" + randomEx])
 }
 
 function chooseLab() {
-    new_labyrinthe(3, labyrinthes["3"]["ex-0"]);
+    new_labyrinthe(6, labyrinthes["6"]["ex-0"]);
 }
 
 function new_labyrinthe(taille, ex) {
@@ -36,16 +36,29 @@ function new_labyrinthe(taille, ex) {
             }
         }
 
-        console.log(borderstyle, "celule num " + i);
+        console.log(borderstyle, "celule num " + ex[i]["posX"] +"_"+ ex[i]["posY"]);
         let element = document.createElement("DIV");
-        console.log(ex.length -1);
-        element.className = "cellule_"+ i;
-        if(i == ex.length-1){
-            element.className = "cellule_end";}
-        
+        element.id = "cellule_"+ ex[i]["posX"] +"_"+ ex[i]["posY"];
+        if(i === ex.length-1){
+            element.style.backgroundColor = "tomato"}
         element.style.borderStyle = borderstyle;
+        element.style.borderColor = "rgb(210,10,122)";
         document.getElementById("grid-container").appendChild(element);
+
     }
 }
 
 /*==============CODE SE DEPLACANT DANS LE LABYRINTHE=================*/
+function move(nbCote) {
+    let posX = 0;
+    let posY = 0;
+    while (lastCase(nbCote, posX, posY)) {
+        for (let i=0; i<4; i++) {
+
+        }
+    }
+}
+
+function lastCase(nbCote, X, Y) {
+    return (X === nbCote) && (Y === nbCote);
+}

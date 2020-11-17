@@ -50,18 +50,24 @@ function new_labyrinthe(taille, ex) {
         document.getElementById("grid-container").appendChild(element);
 
     }
+    move(3);
 }
 
 /*==============CODE SE DEPLACANT DANS LE LABYRINTHE=================*/
 function move(nbCote) {
-    let posX = 0;
+    let posX = 3;
     let posY = 0;
+    let element = document.createElement("DIV");
+    element.style.backgroundColor = "rgb(64,234,207)"
     while (lastCase(nbCote, posX, posY)) {
-        for (let i=0; i<4; i++) {
+        findMyPosition(posX, posY)
 
-        }
     }
 }
+function findMyPosition(X, Y) {
+    document.getElementById("cellule_" + X +"_" + Y).id
+}
+
 
 function lastCase(nbCote, X, Y) {
     return (X === nbCote) && (Y === nbCote);
